@@ -57,14 +57,14 @@ The job is an action and asks for Queue to complete the action.
 
 You can refer the ```job.php``` in ```Examples``` folder to understand how to create the jobs and push them to Queue.
 
-You can refer the ```SendMail.php``` in ```src``` folder to understand how to create the action classes and let them call in ```job.php```.
+You can refer the ```SendMail.php``` in ```src``` folder to understand how to extend this calss and create the job classes(such as ```WeatherJob.php``` and ```MonitorJob.php```) and let them call in ```job.php```.
 
 - Start the Queue pool
 
 Using the following command:
 
 ```bash
-php path/to/Scheduler/src/index.php
+php path/to/Scheduler/src/worker.php
 ```
 __The Queue pool will be expired after 2 minutes.__
 
@@ -75,7 +75,7 @@ If you have to make the queue non-stop, you can create a crontab job.
 ```bash
 sudo contab -e
 # add the following cron job in the cron file.
-* * * * * php path/to/Scheduler/src/index.php >> /dev/null 2>&1
+* * * * * php path/to/Scheduler/src/worker.php >> /dev/null 2>&1
 ```
 
 - Start the Job via PHP CLI in terminal
@@ -88,12 +88,14 @@ If you run the ```job.php```, you will look at the terminal window and notice th
 
 ## Support
 
-If you have some problems during building the projects, you can feel free to send this e-mail:
+If you have some problems during building the projects, you can feel free to create issues or send the following e-mail address:
 __peter279k@gmail.com__.
 
 ## Report
 
-If you find some bugs or vulnerabilities, please feel free to send this e-mail:
+If you find some bugs or vulnerabilities, please feel free to send this e-mail address:
 __peter279k@gmail.com__.
 
 ## References
+
+We refer this [blog post](http://masnun.com/2015/05/24/using-laravel-queues-standalone-outside-laravel.html) and complete this project.
